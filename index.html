@@ -1,0 +1,1518 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>IWAZAKI ポートフォリオ</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1c1c3a}a:hover{color:#c9473b}
+html{scroll-behavior:smooth}
+@keyframes pop{from{opacity:0;filter:blur(4px);translate:0 32px}to{opacity:1;filter:blur(0);translate:0 0}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+#top img{animation: floaty 8s ease-in-out infinite}
+#top > div > div{animation: pop 1.1s cubic-bezier(.22,1,.36,1) both}
+#top > div > div:nth-child(2){animation-delay:.3s}
+@keyframes floatUp{from{opacity:0;filter:blur(4px);translate:0 32px}to{opacity:1;filter:blur(0);translate:0 0}}
+@keyframes fadeL{from{opacity:0;filter:blur(4px);translate:-56px 0}to{opacity:1;filter:blur(0);translate:0 0}}
+@keyframes slideL{from{opacity:0;filter:blur(4px);translate:-48px 0}to{opacity:1;filter:blur(0);translate:0 0}}
+@keyframes slideR{from{opacity:0;filter:blur(4px);translate:48px 0}to{opacity:1;filter:blur(0);translate:0 0}}
+@keyframes zoomIn{from{opacity:0;filter:blur(4px);scale:.94}to{opacity:1;filter:blur(0);scale:1}}
+@supports (animation-timeline: view()) and (not (display:block)){
+  section:not(#top) > div > div:first-child, section:not(#top) div[style*="border-radius"]:not([style*="50%"]), section:not(#top) article, section:not(#top) li, section:not(#top) details, #contact > div > *{
+    animation: pop linear both; animation-timeline: view(); animation-range: entry 0% entry 25%;
+  }
+  section:not(#top) [style*="border: 1px"]:not([style*="50%"]):not([style*="999px"]):not(input):not(select):not(textarea){animation: pop linear both; animation-timeline: view(); animation-range: entry 0% entry 25%}
+  #contact > div > *{animation-name: pop}
+  section:not(#top) [style*="flex-wrap"] > :nth-child(even){animation-range: entry 8% entry 33%}
+  section:not(#top) > div > div:first-child{animation-name: fadeL; animation-range: entry 0% entry 25%}
+  section:not(#top) div[style*="border-radius"]:not([style*="50%"]):nth-child(3n+1), section:not(#top) article:nth-child(3n+1), section:not(#top) li:nth-child(3n+1){animation-name: pop}
+  section:not(#top) div[style*="border-radius"]:not([style*="50%"]):nth-child(3n+2), section:not(#top) article:nth-child(3n+2), section:not(#top) li:nth-child(3n+2){animation-name: pop}
+  section:not(#top) div[style*="border-radius"]:not([style*="50%"]):nth-child(3n), section:not(#top) article:nth-child(3n), section:not(#top) li:nth-child(3n){animation-name: pop}
+  section:not(#top) details, #entrust > div > div:first-child{animation-name: pop}
+}
+@supports (not (display:block)){
+  section:not(#top) article, section:not(#top) div[style*="border-radius"]:not([style*="50%"]), section:not(#top) li{animation: pop 1.8s cubic-bezier(.2,.8,.3,1) both}
+}
+section div[style*="border-radius"]:not([style*="50%"]), section li[style*="border-radius"], article, .btn{transition: transform .2s ease, box-shadow .2s ease}
+section div[style*="border-radius"]:not([style*="50%"]):hover, section li[style*="border-radius"]:hover, article:hover{transform: translateY(-4px); box-shadow: 0 8px 18px rgba(28,28,58,.14)}
+.btn:hover{transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 18px rgba(28,28,58,.2)}
+.step .hint,.step .detail{transition: opacity .25s ease}
+.step .detail{opacity:0}
+.step:hover .hint,.step:focus .hint{opacity:0}
+.step:hover .detail,.step:focus .detail{opacity:1}
+.step:hover,.step:focus{background:#f4f4fb !important}
+nav a{border-radius:6px;transition: background .15s ease}
+nav a:hover{background:#f4f4fb}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:#f4f4fb}
+.chev{transition: transform .25s ease}
+details[open] .chev{transform: rotate(180deg)}
+details[open] > div{animation: pop 1s ease both}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+
+@supports (box-shadow:0 0 0 #000){section div[style*="border-radius"]:not([style*="50%"]):not([style*="999px"]), section article, section li.step, section details{box-shadow:0 4px 18px rgba(60,60,120,.09)}}
+
+.rv{opacity:0}
+.rv.in{animation: pop 1s cubic-bezier(.22,1,.36,1) both}
+.rv.hd.in{animation: fadeL 1s cubic-bezier(.22,1,.36,1) both}
+@keyframes gradIn{from{opacity:1;translate:0 16px;-webkit-mask-position:100% 0;mask-position:100% 0}to{opacity:1;translate:0 0;-webkit-mask-position:0 0;mask-position:0 0}}
+@keyframes slipInL{from{opacity:0;translate:-48px 0}to{opacity:1;translate:0 0}}
+@keyframes slipInR{from{opacity:0;translate:48px 0}to{opacity:1;translate:0 0}}
+@keyframes zoomBlur{from{opacity:0;scale:1.05;filter:blur(8px)}to{opacity:1;scale:1;filter:blur(0)}}
+.rv.v1.in{-webkit-mask-image:linear-gradient(100deg,#000 0%,#000 42%,transparent 58%,transparent 100%);mask-image:linear-gradient(100deg,#000 0%,#000 42%,transparent 58%,transparent 100%);-webkit-mask-size:250% 100%;mask-size:250% 100%;animation: gradIn 1s cubic-bezier(.22,1,.36,1) both}
+.rv.v2.in{animation: slipInL 1s cubic-bezier(.22,1,.36,1) both}
+.rv.v3.in{animation: zoomBlur 1s cubic-bezier(.22,1,.36,1) both}
+.rv.v4.in{animation: slipInR 1s cubic-bezier(.22,1,.36,1) both}
+@keyframes dropIn{from{opacity:0;translate:0 -32px}to{opacity:1;translate:0 0}}
+@keyframes spinZoom{from{opacity:0;scale:.92}to{opacity:1;scale:1}}
+@keyframes wipeUp{from{opacity:1;clip-path:inset(100% 0 0 0);translate:0 16px}to{opacity:1;clip-path:inset(0 0 0 0);translate:0 0}}
+.rv.v5.in{animation: dropIn 1s cubic-bezier(.22,1,.36,1) both}
+.rv.v6.in{animation: spinZoom 1s cubic-bezier(.22,1,.36,1) both}
+.rv.v7.in{animation: wipeUp 1s cubic-bezier(.22,1,.36,1) both}
+
+
+@media (prefers-reduced-motion: reduce){.rv{opacity:1}}
+</style>
+</helmet>
+<div style="font-family: 'Meiryo UI', Meiryo, 'メイリオ', 'Hiragino Sans', 'Yu Gothic UI', sans-serif; color: #5b5b73; background: #fffffe; line-height: 1.7; font-size: 16px;">
+
+  <!-- Header -->
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 24px; padding: 0 48px; border-bottom: 1px solid #e3e3ee;">
+    <a href="#top" style="font-weight: 700; font-size: 20px; letter-spacing: 0.08em; color: #1c1c3a; text-decoration: none; min-height: 44px; display: flex; align-items: center;">IWAZAKI</a>
+    <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 2px;">
+      <a href="#about" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; font-weight: 500; color: #1c1c3a; text-decoration: none;">やってきたこと</a>
+      <a href="#process" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; font-weight: 500; color: #1c1c3a; text-decoration: none;">進め方</a>
+      <a href="#consult" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; font-weight: 500; color: #1c1c3a; text-decoration: none;">ご相談内容</a>
+      <a href="#career" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; font-weight: 500; color: #1c1c3a; text-decoration: none;">経験</a>
+      <a href="#strength" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; font-weight: 500; color: #1c1c3a; text-decoration: none;">強み・得意分野</a>
+      <a href="#works" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; font-weight: 500; color: #1c1c3a; text-decoration: none;">成果・作品</a>
+      <a href="#history" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; font-weight: 500; color: #1c1c3a; text-decoration: none;">経歴</a>
+      <a class="btn" href="entrust.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; margin: 2px 4px; background: #c9473b; color: #fffffe; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 999px;">丸投げOK</a>
+      <a href="#contact" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; font-weight: 500; color: #1c1c3a; text-decoration: none;">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <!-- 1. Greeting -->
+  <section id="top" style="background: #f9ebb8; padding: 24px 48px;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 48px;">
+      <div style="flex: 0 0 auto; margin: 0 auto;">
+        <img src="assets/profile.jpg" alt="IWAZAKIのプロフィール画像（イラスト）" style="display: block; width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #e3e3ee; box-sizing: border-box;">
+      </div>
+      <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 15px;">
+        <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">HELLO</p>
+        <h1 style="margin: 0; font-weight: 700; font-size: 38px; line-height: 1.35; color: #1c1c3a;">曖昧な困りごとを、<br>動く仕組みに。</h1>
+        <p style="margin: 0; font-size: 16px;">はじめまして、IWAZAKIです。「なんとなく不便」「こうなったらいいな」という、まだ形のない話を具体に落とし込むのが得意です。課題を見つけるところから、作る、続けられる状態にするまで、ひとりで通して担当します。</p>
+        <p style="margin: 0; font-size: 16px; color: #1c1c3a; font-weight: 700;">うまく説明できなくても、大丈夫です。いま困っていることを、そのままお聞かせください。</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px 18px; margin-top: 4px;">
+          <a class="btn" href="entrust.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; background: #1c1c3a; color: #fffffe; font-weight: 700; text-decoration: none; border-radius: 999px;">丸投げOKについて見る</a>
+          <a class="btn" href="#contact" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; background: #fffffe; color: #1c1c3a; font-weight: 700; text-decoration: none; border-radius: 999px; border: 2px solid #1c1c3a; box-sizing: border-box;">まずは相談する</a>
+        </div>
+        <ul style="list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 24px 15px;">
+          <li style="display: flex; align-items: center; gap: 12px; padding: 4px 14px 4px 10px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 999px; font-weight: 700; font-size: 14px; color: #1c1c3a;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg>課題発見
+          </li>
+          <li style="display: flex; align-items: center; gap: 12px; padding: 4px 14px 4px 10px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 999px; font-weight: 700; font-size: 14px; color: #1c1c3a;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M9 9v11"></path></svg>設計
+          </li>
+          <li style="display: flex; align-items: center; gap: 12px; padding: 4px 14px 4px 10px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 999px; font-weight: 700; font-size: 14px; color: #1c1c3a;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"></path></svg>開発
+          </li>
+          <li style="display: flex; align-items: center; gap: 12px; padding: 4px 14px 4px 10px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 999px; font-weight: 700; font-size: 14px; color: #1c1c3a;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-3-7z"></path></svg>運用
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entrust band -->
+  <section id="entrust" style="padding: 24px 48px; background: #1c1c3a; color: #f4f4fb;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 36px 42px;">
+      <div style="flex: 0 0 auto;"><svg width="130" height="130" viewBox="0 0 200 200" role="img" aria-label="OKバッジを掲げる、ティールのカーディガンのデフォルメプロフィール">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 96C40 44 70 22 100 22C130 22 160 44 156 96C156 118 160 130 154 142C146 146 138 138 136 128L64 128C62 138 54 146 46 142C40 130 44 118 44 96Z" fill="#7b5e4b"></path>
+        <path d="M92 126H108V140H92Z" fill="#fbd9c4"></path>
+        <path d="M66 142C66 135 82 132 100 132C118 132 134 135 134 142L140 190H60Z" fill="#4fb19d"></path>
+        <path d="M86 133L100 190L114 133Z" fill="#fffffe" stroke-width="2.5"></path>
+        <path d="M70 148L78 168M130 148L122 168" fill="none" stroke-width="14"></path>
+        <ellipse cx="100" cy="92" rx="46" ry="44" fill="#fbd9c4"></ellipse>
+        <path d="M54 88C54 54 76 38 100 38C126 38 148 54 146 88C130 80 112 68 100 56C90 72 70 84 54 88Z" fill="#7b5e4b"></path>
+        <circle cx="80" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <circle cx="120" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <path d="M93 97H107" fill="none"></path>
+        <path d="M74 99Q80 92 86 99M114 99Q120 92 126 99" fill="none" stroke-width="3"></path>
+        <path d="M88 113Q100 128 112 113Z" fill="#fffffe" stroke-width="2.8"></path>
+        <circle cx="100" cy="166" r="24" fill="#e8665a"></circle>
+        <circle cx="100" cy="166" r="18" fill="none" stroke="#fffffe" stroke-width="2"></circle>
+        <text x="100" y="173" text-anchor="middle" font-size="19" font-weight="700" fill="#fffffe" stroke="none" font-family="'Meiryo UI', Meiryo, sans-serif">OK</text>
+        <circle cx="76" cy="168" r="8" fill="#fbd9c4"></circle>
+        <circle cx="124" cy="168" r="8" fill="#fbd9c4"></circle>
+        <path d="M44 48L46 55L53 57L46 59L44 66L42 59L35 57L42 55Z" fill="#f4d36b" stroke-width="2.4"></path>
+      </g>
+      <circle cx="66" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+      <circle cx="134" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+    </svg></div><div style="flex: 0 0 auto; padding: 4px 22px; background: #e8665a; border-radius: 999px; color: #fffffe; font-size: 30px; font-weight: 700; letter-spacing: 0.04em;">丸投げOK!</div>
+      <div style="flex: 1 1 360px; min-width: 0;">
+        <h2 style="margin: 0; font-size: 20px; line-height: 1.5; font-weight: 700; color: #fffffe;">何から話せばいいかわからなくても、大丈夫です。</h2>
+        <p style="margin: 0; font-size: 15px; color: #f4f4fb;">ツール作りに限らず、ヘルプデスク運用や業務の見直しまで。お話を聞くところから、まとめてお任せください。</p>
+      </div>
+      <a class="btn" href="entrust.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; background: #fffffe; color: #1c1c3a; font-weight: 700; text-decoration: none; border-radius: 999px;">丸投げOKの内容を見る →</a>
+    </div>
+  </section>
+
+  <!-- 2. Overview -->
+  <section id="about" style="border-top: 1px solid #e3e3ee; padding: 24px 48px; background: #f4f4fb;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 42px 21px;">
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">WHAT I DO ／ いちばんの強み</p>
+        <h2 style="margin: 0; font-weight: 700; font-size: 38px; line-height: 1.35; color: #1c1c3a;">やってきたこと</h2>
+        <p style="margin: 0; max-width: 820px; font-size: 18px; font-weight: 700; color: #1c1c3a;">現場の困りごとを引き出し、形にし、使い続けられるところまで。この流れを、ひとりで通してやってきたことが、私のいちばんの強みです。</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 30px 24px;">
+
+        <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 21px 39px 24px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 6px solid {{accent}}; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="話を聞いて困りごとを引き出す、2つの吹き出しとひらめきの電球">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <circle cx="100" cy="100" r="80" fill="#fff3f1"></circle>
+      <ellipse cx="100" cy="176" rx="54" ry="6" fill="#f2c4be"></ellipse>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <!-- bubble 1 shadow + body -->
+        <path d="M42 62H132Q144 62 144 74V108Q144 120 132 120H84L64 140V120H54Q42 120 42 108V74Q42 62 54 62Z" fill="#f2c4be" stroke="none"></path>
+        <path d="M38 56H128Q140 56 140 68V104Q140 116 128 116H80L60 136V116H50Q38 116 38 104V68Q38 56 50 56Z" fill="#fffffe"></path>
+        <circle cx="66" cy="86" r="4.5" fill="#1c1c3a"></circle>
+        <circle cx="89" cy="86" r="4.5" fill="#1c1c3a"></circle>
+        <circle cx="112" cy="86" r="4.5" fill="#1c1c3a"></circle>
+        <!-- bubble 2 shadow + body -->
+        <path d="M88 105H154Q166 105 166 117V143Q166 155 154 155H144V173L124 155H88Q76 155 76 143V117Q76 105 88 105Z" fill="#e4b94a" stroke="none"></path>
+        <path d="M84 100H150Q162 100 162 112V138Q162 150 150 150H140V168L120 150H84Q72 150 72 138V112Q72 100 84 100Z" fill="#f4d36b"></path>
+        <path d="M80 108H112" fill="none" stroke="#fbe8a3" stroke-width="3"></path>
+        <!-- bulb -->
+        <path d="M117 111C108 111 104 118 104 124C104 129 108 131 109 135H125C126 131 130 129 130 124C130 118 126 111 117 111Z" fill="#fffffe"></path>
+        <path d="M110 140H124" fill="none"></path>
+        <path d="M112 124L117 119L122 124" fill="none" stroke="#e8665a" stroke-width="2.4"></path>
+        <path d="M117 119V135" fill="none" stroke="#e8665a" stroke-width="2.4"></path>
+        <path d="M117 100V94M104 104L100 99M130 104L134 99" fill="none" stroke="#e8665a" stroke-width="2.4"></path>
+        <!-- sparkles -->
+        <path d="M158 44L161 52L169 55L161 58L158 66L155 58L147 55L155 52Z" fill="#f4d36b" stroke-width="2"></path>
+        <path d="M34 120L36 125L41 127L36 129L34 134L32 129L27 127L32 125Z" fill="#4fb19d" stroke-width="2"></path>
+        <circle cx="172" cy="94" r="3" fill="#e8665a" stroke="none"></circle>
+        <circle cx="30" cy="84" r="3" fill="#9ac5e5" stroke="none"></circle>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 21px;">
+            <span style="font-size: 36px; font-weight: 700; line-height: 1; color: #c9473b;">01</span>
+            <div style="flex: 0 0 56px; width: 56px; height: 56px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-weight: 700; font-size: 24px; line-height: 1.3; color: #1c1c3a;">引き出す</h3>
+          </div>
+          <p style="margin: 0; font-size: 16px;">うまく言葉にできない困りごとを、お話の中から引き出して、言葉にします。依頼された内容の裏にある本当の原因まで、一緒にたどります。依頼と本当に必要なことが違うときは、そこを先に整理します。</p>
+        </div>
+
+        <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 21px 39px 24px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 6px solid {{accent}}; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="手書きの設計メモが、グラフ付きの動く画面になるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <circle cx="100" cy="100" r="80" fill="#eef8f5"></circle>
+      <ellipse cx="100" cy="176" rx="64" ry="6" fill="#bfe3da"></ellipse>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <!-- memo -->
+        <rect x="30" y="68" width="54" height="72" rx="5" fill="#bfe3da" stroke="none"></rect>
+        <rect x="26" y="64" width="54" height="72" rx="5" fill="#fffffe" transform="rotate(-5 53 100)"></rect>
+        <path d="M34 84H66M34 96H68M34 108H56" fill="none" transform="rotate(-5 53 100)"></path>
+        <circle cx="38" cy="122" r="4" fill="#f4d36b" transform="rotate(-5 53 100)"></circle>
+        <path d="M46 122H64" fill="none" transform="rotate(-5 53 100)"></path>
+        <!-- arrow -->
+        <path d="M86 100H104" fill="none" stroke="#e8665a" stroke-dasharray="2 6"></path>
+        <path d="M98 92L106 100L98 108" fill="none" stroke="#e8665a"></path>
+        <!-- app window shadow + body -->
+        <rect x="116" y="62" width="68" height="90" rx="8" fill="#9fd1c5" stroke="none"></rect>
+        <rect x="112" y="56" width="68" height="90" rx="8" fill="#fffffe"></rect>
+        <path d="M112 74H180" fill="none"></path>
+        <circle cx="122" cy="65" r="2.2" fill="#e8665a" stroke="none"></circle>
+        <circle cx="130" cy="65" r="2.2" fill="#f4d36b" stroke="none"></circle>
+        <circle cx="138" cy="65" r="2.2" fill="#4fb19d" stroke="none"></circle>
+        <rect x="120" y="82" width="52" height="12" rx="3" fill="#4fb19d"></rect>
+        <path d="M122 132V116M132 132V108M142 132V120M152 132V102M162 132V112" fill="none" stroke-width="6" stroke="#f4d36b"></path>
+        <path d="M120 134H172" fill="none"></path>
+        <circle cx="168" cy="102" r="6" fill="#e8665a"></circle>
+        <!-- cursor -->
+        <path d="M150 120L150 142L156 136L161 148L165 146L160 134L168 134Z" fill="#fffffe" stroke-width="2.4"></path>
+        <!-- sparkles -->
+        <path d="M100 40L102 46L108 48L102 50L100 56L98 50L92 48L98 46Z" fill="#f4d36b" stroke-width="2"></path>
+        <circle cx="176" cy="40" r="3" fill="#e8665a" stroke="none"></circle>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 21px;">
+            <span style="font-size: 36px; font-weight: 700; line-height: 1; color: #c9473b;">02</span>
+            <div style="flex: 0 0 56px; width: 56px; height: 56px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-weight: 700; font-size: 24px; line-height: 1.3; color: #1c1c3a;">形にする</h3>
+          </div>
+          <p style="margin: 0; font-size: 16px;">整理した課題を、設計して、自分の手で形にする。作るのはツールだけとは限らず、運用の流れや手順書、ヘルプデスクのしくみまで整えます。必要な機能と、あえてやらないことを決め、小さく作って確かめながら広げます。</p>
+        </div>
+
+        <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 21px 39px 24px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 6px solid {{accent}}; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="循環する矢印と歯車に囲まれた、チェック入りの盾">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <circle cx="100" cy="100" r="80" fill="#f1f6fd"></circle>
+      <ellipse cx="100" cy="172" rx="40" ry="5" fill="#c9daf0"></ellipse>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <!-- shield -->
+        <path d="M104 56L146 70V104C146 130 128 146 104 154C80 146 62 130 62 104V70Z" fill="#3b8c7b" stroke="none"></path>
+        <path d="M100 52L140 66V100C140 126 124 142 100 150C76 142 60 126 60 100V66Z" fill="#4fb19d"></path>
+        <path d="M100 52L100 150C76 142 60 126 60 100V66Z" fill="#6cc4b1" stroke="none"></path>
+        <path d="M100 52L140 66V100C140 126 124 142 100 150C76 142 60 126 60 100V66Z" fill="none"></path>
+        <path d="M72 70L72 92" fill="none" stroke="#bfe9df" stroke-width="3"></path>
+        <path d="M84 100L96 112L118 88" fill="none" stroke="#fffffe" stroke-width="6"></path>
+        <!-- loop arrows -->
+        <path d="M40.2 72.1A66 66 0 0 1 137.9 45.9" fill="none" stroke="#e8665a" stroke-width="5"></path>
+        <path d="M147.7 52.8L142.5 39.3L133.3 52.5Z" fill="#e8665a" stroke="#e8665a" stroke-width="2"></path>
+        <path d="M159.8 127.9A66 66 0 0 1 62.1 154.1" fill="none" stroke="#e8665a" stroke-width="5"></path>
+        <path d="M52.3 147.2L57.5 160.7L66.7 147.5Z" fill="#e8665a" stroke="#e8665a" stroke-width="2"></path>
+        <!-- small gears -->
+        <circle cx="168" cy="146" r="9" fill="#f4d36b" stroke-width="2.4"></circle>
+        <circle cx="168" cy="146" r="3.4" fill="#fffffe" stroke-width="2.4"></circle>
+        <path d="M168 133V136M168 156V159M155 146H158M178 146H181M159 137L161 139M175 153L177 155M177 137L175 139M161 153L159 155" fill="none" stroke-width="2.4"></path>
+        <circle cx="34" cy="60" r="7" fill="#9ac5e5" stroke-width="2.4"></circle>
+        <circle cx="34" cy="60" r="2.6" fill="#fffffe" stroke-width="2.4"></circle>
+        <path d="M34 50V52M34 68V70M24 60H26M42 60H44" fill="none" stroke-width="2.4"></path>
+        <!-- sparkles -->
+        <path d="M172 70L174 76L180 78L174 80L172 86L170 80L164 78L170 76Z" fill="#f4d36b" stroke-width="2"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 21px;">
+            <span style="font-size: 36px; font-weight: 700; line-height: 1; color: #c9473b;">03</span>
+            <div style="flex: 0 0 56px; width: 56px; height: 56px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-weight: 700; font-size: 24px; line-height: 1.3; color: #1c1c3a;">続けられるようにする</h3>
+          </div>
+          <p style="margin: 0; font-size: 16px;">現場で試し、手順を整え、使い続けられる状態にする。作って終わりにせず、手順書や運用の形まで整えます。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Process -->
+  <section id="process" style="border-top: 1px solid #e3e3ee; padding: 24px 48px; background: #fffffe;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px 12px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px;"><div style="flex: 1 1 360px; min-width: 0;"><div style="display: flex; flex-direction: column; gap: 2px;">
+        <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">PROCESS</p>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 21px;"><h2 style="margin: 0; font-weight: 700; font-size: 28px; line-height: 1.4; color: #1c1c3a;">進め方</h2><span style="font-size: 13px; color: #5b5b73;">▸ カーソルを合わせると、くわしい説明に切り替わります</span></div>
+      </div></div><div style="flex: 0 0 auto;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="首をかしげて話を聞く、紺のジャケットのデフォルメプロフィール">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="rotate(-7 100 132)">
+          <path d="M44 96C40 44 70 22 100 22C130 22 160 44 156 96C156 118 160 130 154 142C146 146 138 138 136 128L64 128C62 138 54 146 46 142C40 130 44 118 44 96Z" fill="#7b5e4b"></path>
+        </g>
+        <path d="M92 126H108V140H92Z" fill="#fbd9c4"></path>
+        <path d="M66 142C66 135 82 132 100 132C118 132 134 135 134 142L140 190H60Z" fill="#1c1c3a"></path>
+        <path d="M88 133L100 152L112 133Z" fill="#fffffe" stroke-width="2.5"></path>
+        <path d="M70 148L90 172M130 148L110 172" fill="none" stroke-width="14"></path>
+        <circle cx="94" cy="174" r="9" fill="#fbd9c4"></circle>
+        <circle cx="106" cy="174" r="9" fill="#fbd9c4"></circle>
+        <g transform="rotate(-7 100 132)">
+          <ellipse cx="100" cy="92" rx="46" ry="44" fill="#fbd9c4"></ellipse>
+          <path d="M54 88C54 54 76 38 100 38C126 38 148 54 146 88C130 80 112 68 100 56C90 72 70 84 54 88Z" fill="#7b5e4b"></path>
+          <circle cx="80" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+          <circle cx="120" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+          <path d="M93 97H107" fill="none"></path>
+          <circle cx="80" cy="99" r="3.2" fill="#1c1c3a" stroke="none"></circle>
+          <circle cx="120" cy="99" r="3.2" fill="#1c1c3a" stroke="none"></circle>
+          <path d="M91 114Q100 122 109 114" fill="none" stroke-width="3"></path>
+        </g>
+        <path d="M166 74C150 62 152 48 161 48C165 48 166 51 166 53C166 51 168 48 172 48C181 48 182 62 166 74Z" fill="#e8665a" stroke-width="3"></path>
+      </g>
+      <circle cx="66" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+      <circle cx="134" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+    </svg></div></div>
+      <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 30px 15px;">
+        <li class="step" tabindex="0" style="flex: 1 1 300px; min-width: 0; padding: 30px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 4px solid #4fb19d; border-radius: 12px; cursor: default;"><div style="display: flex; justify-content: center; margin-bottom: 6px;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="耳と音のイラスト（お話を聞く）">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M84 156C66 146 62 116 68 96C74 68 98 56 118 66C140 78 140 102 124 120C114 132 120 142 108 152C100 157 92 159 84 156Z" fill="#fbd9c4"></path>
+        <path d="M96 88C106 82 118 90 114 102C111 110 102 112 102 120" fill="none"></path>
+        <path d="M46 92Q38 106 46 120" fill="none" stroke="#e8665a"></path>
+        <path d="M32 82Q20 106 32 130" fill="none" stroke="#e8665a"></path>
+      </g>
+    </svg></div>
+          <span style="font-size: 12px; font-weight: 700; color: #1c1c3a;">STEP 1</span><br><span style="font-weight: 700; font-size: 17px; color: #1c1c3a;">お話を聞く</span>
+          <div style="display: grid; margin-top: 6px;">
+            <span class="hint" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6; color: #5b5b73;">「困った」を、そのまま話すだけ</span>
+            <span class="detail" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6;">作業を見せていただきながら、困っていることを伺います。うまく言葉にできない部分も、質問しながら一緒にほぐしていきます。</span>
+          </div>
+        </li>
+        <li class="step" tabindex="0" style="flex: 1 1 300px; min-width: 0; padding: 30px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 4px solid #4fb19d; border-radius: 12px; cursor: default;"><div style="display: flex; justify-content: center; margin-bottom: 6px;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="ばらばらの付箋が、整った文書にまとまるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="32" y="40" width="36" height="36" rx="3" fill="#f4d36b" transform="rotate(-6 50 58)"></rect>
+        <rect x="82" y="40" width="36" height="36" rx="3" fill="#fbc9c3" transform="rotate(4 100 58)"></rect>
+        <rect x="132" y="40" width="36" height="36" rx="3" fill="#bfe3da" transform="rotate(-3 150 58)"></rect>
+        <path d="M100 88V108M92 100L100 108L108 100" fill="none" stroke="#e8665a"></path>
+        <rect x="50" y="116" width="100" height="60" rx="5" fill="#fffffe"></rect>
+        <path d="M62 132H138M62 146H138M62 160H108" fill="none"></path>
+      </g>
+    </svg></div>
+          <span style="font-size: 12px; font-weight: 700; color: #1c1c3a;">STEP 2</span><br><span style="font-weight: 700; font-size: 17px; color: #1c1c3a;">整理して、言葉にする</span>
+          <div style="display: grid; margin-top: 6px;">
+            <span class="hint" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6; color: #5b5b73;">頭のモヤモヤを、見える形に</span>
+            <span class="detail" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6;">聞いた内容を、作業の流れと課題に整理してお返しします。「まさにそれです」と思えたところで、次に進みます。</span>
+          </div>
+        </li>
+        <li class="step" tabindex="0" style="flex: 1 1 300px; min-width: 0; padding: 30px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 4px solid #4fb19d; border-radius: 12px; cursor: default;"><div style="display: flex; justify-content: center; margin-bottom: 6px;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="画面の設計図（ワイヤーフレーム）とえんぴつ">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="36" y="50" width="120" height="96" rx="8" fill="#fffffe"></rect>
+        <path d="M36 70H156" fill="none"></path>
+        <circle cx="47" cy="60" r="2.2" fill="#e8665a" stroke="none"></circle>
+        <circle cx="56" cy="60" r="2.2" fill="#f4d36b" stroke="none"></circle>
+        <rect x="46" y="80" width="30" height="56" rx="3" fill="#bfe3da"></rect>
+        <rect x="86" y="80" width="60" height="16" rx="3" fill="#fffffe"></rect>
+        <rect x="86" y="106" width="60" height="30" rx="3" fill="#fde1dd"></rect>
+        <path d="M130 170L170 126L180 136L140 180L126 184Z" fill="#f4d36b"></path>
+        <path d="M166 130L176 140" fill="none"></path>
+      </g>
+    </svg></div>
+          <span style="font-size: 12px; font-weight: 700; color: #1c1c3a;">STEP 3</span><br><span style="font-weight: 700; font-size: 17px; color: #1c1c3a;">設計と、画面の見える化</span>
+          <div style="display: grid; margin-top: 6px;">
+            <span class="hint" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6; color: #5b5b73;">作る前に、完成形をお見せします</span>
+            <span class="detail" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6;">設計書と画面のイメージで、できあがりを先に確認していただきます。認識のズレを早めに解消して、手戻りを防ぎます。</span>
+          </div>
+        </li>
+        <li class="step" tabindex="0" style="flex: 1 1 300px; min-width: 0; padding: 30px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 4px solid #4fb19d; border-radius: 12px; cursor: default;"><div style="display: flex; justify-content: center; margin-bottom: 6px;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="積み木を小さく組み上げるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="52" y="116" width="46" height="46" rx="4" fill="#4fb19d"></rect>
+        <rect x="102" y="116" width="46" height="46" rx="4" fill="#f4d36b"></rect>
+        <rect x="77" y="70" width="46" height="46" rx="4" fill="#e8665a"></rect>
+        <path d="M100 56V40M126 62L136 52M74 62L64 52" fill="none"></path>
+      </g>
+    </svg></div>
+          <span style="font-size: 12px; font-weight: 700; color: #1c1c3a;">STEP 4</span><br><span style="font-weight: 700; font-size: 17px; color: #1c1c3a;">小さく作る</span>
+          <div style="display: grid; margin-top: 6px;">
+            <span class="hint" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6; color: #5b5b73;">まず動くものを、すぐ形に</span>
+            <span class="detail" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6;">最小限で動くものを作り、実際のデータで確かめます。大きく作ってからやり直す、ということをしません。</span>
+          </div>
+        </li>
+        <li class="step" tabindex="0" style="flex: 1 1 300px; min-width: 0; padding: 30px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 4px solid #4fb19d; border-radius: 12px; cursor: default;"><div style="display: flex; justify-content: center; margin-bottom: 6px;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="画面のチェックリストを直しているイラスト">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="36" y="48" width="120" height="92" rx="8" fill="#fffffe"></rect>
+        <circle cx="56" cy="70" r="8" fill="#4fb19d"></circle>
+        <path d="M52 70L55 73L60 67" fill="none" stroke="#fffffe" stroke-width="2.5"></path>
+        <path d="M74 70H138" fill="none"></path>
+        <circle cx="56" cy="94" r="8" fill="#4fb19d"></circle>
+        <path d="M52 94L55 97L60 91" fill="none" stroke="#fffffe" stroke-width="2.5"></path>
+        <path d="M74 94H128" fill="none"></path>
+        <circle cx="56" cy="118" r="8" fill="#e8665a"></circle>
+        <path d="M74 118H122" fill="none"></path>
+        <path d="M120 174L162 128L172 138L130 184L116 186Z" fill="#f4d36b"></path>
+        <path d="M158 132L168 142" fill="none"></path>
+      </g>
+    </svg></div>
+          <span style="font-size: 12px; font-weight: 700; color: #1c1c3a;">STEP 5</span><br><span style="font-weight: 700; font-size: 17px; color: #1c1c3a;">現場で試して、直す</span>
+          <div style="display: grid; margin-top: 6px;">
+            <span class="hint" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6; color: #5b5b73;">使ってみた違和感を、そのまま反映</span>
+            <span class="detail" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6;">実際の現場で使っていただき、使いにくいところや抜けを洗い出して直します。小さな違和感こそ、遠慮なくお伝えください。</span>
+          </div>
+        </li>
+        <li class="step" tabindex="0" style="flex: 1 1 300px; min-width: 0; padding: 30px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 4px solid #4fb19d; border-radius: 12px; cursor: default;"><div style="display: flex; justify-content: center; margin-bottom: 6px;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="しおり付きの手順書（開いた本）">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M100 66C84 56 62 56 40 62V140C62 134 84 134 100 144C116 134 138 134 160 140V62C138 56 116 56 100 66Z" fill="#fffffe"></path>
+        <path d="M100 66V144" fill="none"></path>
+        <path d="M54 80H88M54 94H88M54 108H78M112 80H146M112 94H146M112 108H136" fill="none"></path>
+        <path d="M126 58V88L134 80L142 88V60" fill="#e8665a"></path>
+      </g>
+    </svg></div>
+          <span style="font-size: 12px; font-weight: 700; color: #1c1c3a;">STEP 6</span><br><span style="font-weight: 700; font-size: 17px; color: #1c1c3a;">手順書で、使い続けられるように</span>
+          <div style="display: grid; margin-top: 6px;">
+            <span class="hint" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6; color: #5b5b73;">作って終わりにしません</span>
+            <span class="detail" style="grid-area: 1 / 1; font-size: 13px; line-height: 1.6;">誰が見ても使えるよう、操作の手順書を添えてお渡しします。担当が変わっても回る状態を、ゴールにします。</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Consult -->
+  <section id="consult" style="border-top: 1px solid #e3e3ee; padding: 24px 48px; background: #f4f4fb;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px 15px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px;"><div style="flex: 1 1 360px; min-width: 0;"><div style="display: flex; flex-direction: column; gap: 2px;">
+        <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">CONSULT</p>
+        <h2 style="margin: 0; font-weight: 700; font-size: 28px; line-height: 1.4; color: #1c1c3a;">ご相談いただけること</h2>
+        <p style="margin: 0; max-width: 760px; font-size: 15px;">ツールを作ることだけが仕事ではありません。日々の運用や、これからの進め方のご相談も、お受けします。</p>
+      </div></div><div style="flex: 0 0 auto;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="ノートにメモしながら話を聞く、黄色いパーカーのデフォルメプロフィール">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 96C40 44 70 22 100 22C130 22 160 44 156 96C156 118 160 130 154 142C146 146 138 138 136 128L64 128C62 138 54 146 46 142C40 130 44 118 44 96Z" fill="#7b5e4b"></path>
+        <path d="M92 126H108V140H92Z" fill="#fbd9c4"></path>
+        <path d="M66 142C66 135 82 132 100 132C118 132 134 135 134 142L140 190H60Z" fill="#f4d36b"></path>
+        <path d="M76 138C80 150 120 150 124 138" fill="none" stroke-width="3"></path>
+        <path d="M92 146V160M108 146V160" fill="none" stroke-width="3"></path>
+        <path d="M70 148L72 172M130 148L128 172" fill="none" stroke-width="14"></path>
+        <path d="M70 148L72 172M130 148L128 172" fill="none" stroke-width="10" stroke="#f4d36b"></path>
+        <ellipse cx="100" cy="92" rx="46" ry="44" fill="#fbd9c4"></ellipse>
+        <path d="M54 88C54 54 76 38 100 38C126 38 148 54 146 88C130 80 112 68 100 56C90 72 70 84 54 88Z" fill="#7b5e4b"></path>
+        <circle cx="80" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <circle cx="120" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <path d="M93 97H107" fill="none"></path>
+        <circle cx="82" cy="99" r="3.2" fill="#1c1c3a" stroke="none"></circle>
+        <circle cx="122" cy="99" r="3.2" fill="#1c1c3a" stroke="none"></circle>
+        <path d="M92 114Q100 120 108 114" fill="none" stroke-width="3"></path>
+        <rect x="76" y="156" width="48" height="34" rx="4" fill="#fffffe"></rect>
+        <path d="M84 168H116M84 178H106" fill="none" stroke-width="2.5"></path>
+        <path d="M120 176L144 150" fill="none" stroke-width="7"></path>
+        <path d="M120 176L144 150" fill="none" stroke="#e8665a" stroke-width="3"></path>
+        <circle cx="72" cy="176" r="8" fill="#fbd9c4"></circle>
+        <circle cx="128" cy="176" r="8" fill="#fbd9c4"></circle>
+        <path d="M150 62H178Q184 62 184 68V82Q184 88 178 88H170L162 96V88H150Q144 88 144 82V68Q144 62 150 62Z" fill="#fffffe" stroke-width="3"></path>
+        <circle cx="156" cy="75" r="2.4" fill="#1c1c3a" stroke="none"></circle>
+        <circle cx="164" cy="75" r="2.4" fill="#1c1c3a" stroke="none"></circle>
+        <circle cx="172" cy="75" r="2.4" fill="#1c1c3a" stroke="none"></circle>
+      </g>
+      <circle cx="66" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+      <circle cx="134" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+    </svg></div></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px 21px;">
+        <div style="flex: 1 1 250px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 36px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="コード画面のイラスト（ツール作成）">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="36" y="54" width="128" height="92" rx="8" fill="#fffffe"></rect>
+        <path d="M36 74H164" fill="none"></path>
+        <circle cx="48" cy="64" r="2.4" fill="#e8665a" stroke="none"></circle>
+        <circle cx="58" cy="64" r="2.4" fill="#f4d36b" stroke="none"></circle>
+        <path d="M82 92L68 108L82 124M118 92L132 108L118 124M106 88L94 128" fill="none" stroke="#e8665a"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; line-height: 1.4; color: #1c1c3a;">ツール・システムの作成</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">業務の自動化、台帳や集計、チャットボットなど。</p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 36px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="ヘッドセットと吹き出し（ヘルプデスク）">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="100" cy="106" r="30" fill="#fbd9c4"></circle>
+        <path d="M54 108V98A46 46 0 0 1 146 98V108" fill="none"></path>
+        <rect x="44" y="96" width="18" height="34" rx="8" fill="#4fb19d"></rect>
+        <rect x="138" y="96" width="18" height="34" rx="8" fill="#4fb19d"></rect>
+        <path d="M148 128Q148 154 116 156" fill="none"></path>
+        <circle cx="112" cy="156" r="5" fill="#e8665a"></circle>
+        <circle cx="90" cy="108" r="2.4" fill="#1c1c3a" stroke="none"></circle>
+        <circle cx="110" cy="108" r="2.4" fill="#1c1c3a" stroke="none"></circle>
+        <path d="M92 120Q100 126 108 120" fill="none"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1M4 13h3v5H4zM17 13h3v5h-3zM17 18c0 1.5-2 3-5 3"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; line-height: 1.4; color: #1c1c3a;">ヘルプデスク・情シス運用</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">ユーザーサポート、アカウント管理、端末のキッティングや MDM。</p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 36px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="流れ図の途中を省いて近道にするイラスト（業務の見直し）">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="26" y="100" width="38" height="38" rx="6" fill="#4fb19d"></rect>
+        <rect x="81" y="100" width="38" height="38" rx="6" fill="none" stroke="#e8665a" stroke-dasharray="4 5"></rect>
+        <rect x="136" y="100" width="38" height="38" rx="6" fill="#f4d36b"></rect>
+        <path d="M64 119H81M119 119H136" fill="none"></path>
+        <path d="M45 92Q100 36 155 92" fill="none" stroke="#e8665a"></path>
+        <path d="M143 80L156 92L140 96" fill="none" stroke="#e8665a"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; line-height: 1.4; color: #1c1c3a;">業務の見直し・改善提案</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">作業の流れを整理して、減らせるところを見つけます。</p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 36px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="アプリのタイルに新しいタイルが加わるイラスト（ツール・サービスの導入）">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="48" y="48" width="48" height="48" rx="10" fill="#4fb19d"></rect>
+        <rect x="104" y="48" width="48" height="48" rx="10" fill="#f4d36b"></rect>
+        <rect x="48" y="104" width="48" height="48" rx="10" fill="#9ac5e5"></rect>
+        <rect x="104" y="104" width="48" height="48" rx="10" fill="#fffffe" stroke-dasharray="4 5"></rect>
+        <path d="M128 116V140M116 128H140" fill="none" stroke="#e8665a" stroke-width="4"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v4M15 3v4M7 7h10v5a5 5 0 0 1-10 0zM12 17v4"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; line-height: 1.4; color: #1c1c3a;">ツール・サービスの導入</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">Google Workspace、Microsoft 365、Notion、Backlog など。</p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 36px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="3人の人物のうち1人にチェックが付くイラスト（採用・人事）">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="48" cy="88" r="12" fill="#fbd9c4"></circle>
+        <path d="M26 142C26 120 70 120 70 142Z" fill="#9ac5e5"></path>
+        <circle cx="152" cy="88" r="12" fill="#fbd9c4"></circle>
+        <path d="M130 142C130 120 174 120 174 142Z" fill="#9ac5e5"></path>
+        <circle cx="100" cy="80" r="16" fill="#fbd9c4"></circle>
+        <path d="M70 148C70 120 130 120 130 148Z" fill="#e8665a"></path>
+        <circle cx="124" cy="62" r="13" fill="#4fb19d"></circle>
+        <path d="M118 62L122 66L130 57" fill="none" stroke="#fffffe" stroke-width="3"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 11a3 3 0 1 0 0-6M18 14c1.7.7 3 2.4 3 4.5"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; line-height: 1.4; color: #1c1c3a;">採用・人事まわりの仕組み</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">採用管理（ATS）の構築、応募フローの自動化。</p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 36px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="サーバーと盾のイラスト（インフラ・セキュリティ）">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="38" y="48" width="96" height="30" rx="6" fill="#fffffe"></rect>
+        <rect x="38" y="84" width="96" height="30" rx="6" fill="#fffffe"></rect>
+        <rect x="38" y="120" width="96" height="30" rx="6" fill="#fffffe"></rect>
+        <circle cx="52" cy="63" r="3" fill="#4fb19d" stroke="none"></circle>
+        <circle cx="52" cy="99" r="3" fill="#4fb19d" stroke="none"></circle>
+        <circle cx="52" cy="135" r="3" fill="#4fb19d" stroke="none"></circle>
+        <path d="M70 63H120M70 99H120M70 135H120" fill="none"></path>
+        <path d="M148 100L178 110V134C178 152 166 162 148 168C130 162 118 152 118 134V110Z" fill="#e8665a"></path>
+        <path d="M136 136L145 145L162 126" fill="none" stroke="#fffffe" stroke-width="4"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; line-height: 1.4; color: #1c1c3a;">インフラ・セキュリティの運用</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">ネットワーク、DNS・SSL 証明書、監査対応。</p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 36px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="重なった書類のイラスト（資料・マニュアル）">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="56" y="44" width="80" height="104" rx="6" fill="#bfe3da" transform="rotate(-8 96 96)"></rect>
+        <path d="M76 50H118L142 74V152H76Z" fill="#fffffe"></path>
+        <path d="M118 50V74H142" fill="none"></path>
+        <path d="M88 96H130M88 112H130M88 128H112" fill="none"></path>
+        <circle cx="140" cy="142" r="14" fill="#e8665a"></circle>
+        <path d="M133 142L138 147L147 136" fill="none" stroke="#fffffe" stroke-width="3"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 13h6M9 17h6"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; line-height: 1.4; color: #1c1c3a;">資料・マニュアルの作成</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">手順書、研修資料、社内向けのコンテンツ。</p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 36px 27px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="140" height="140" viewBox="0 0 200 200" role="img" aria-label="まだ形のない考えが雲のように浮かぶイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M60 124C42 124 38 104 54 96C52 78 74 70 86 82C94 66 122 68 126 86C144 84 156 104 144 120C140 126 134 124 128 124Z" fill="#fffffe" stroke-dasharray="6 5"></path>
+        <circle cx="52" cy="144" r="7" fill="#fffffe"></circle>
+        <circle cx="38" cy="162" r="4" fill="#fffffe"></circle>
+        <circle cx="94" cy="100" r="9" fill="#f4d36b"></circle>
+        <path d="M91 112H97" fill="none"></path>
+        <path d="M156 56L160 44M170 66L180 62M144 48L138 38" fill="none" stroke="#e8665a"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #f4f4fb; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; line-height: 1.4; color: #1c1c3a;">まだ形になっていないご相談</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">何から始めればいいかの整理から、お付き合いします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Career -->
+  <section id="career" style="border-top: 1px solid #e3e3ee; padding: 24px 48px; background: #fffffe;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 36px 60px;">
+      <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+        <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">EXPERIENCE</p>
+        <h2 style="margin: 0; font-weight: 700; font-size: 28px; line-height: 1.4; color: #1c1c3a;">経験</h2>
+        <p style="margin: 0; max-width: 360px; font-size: 15px;">職種は変わっても、「人の困りごとを聞いて、解決する」ことは一貫しています。</p>
+      </div>
+      <div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 15px;">
+
+        <div style="display: flex; flex-wrap: wrap; gap: 24px 24px; padding: 24px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px; align-items: center;">
+          <svg style="flex: 0 0 auto;" width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="歯のイラストと吹き出し（人と向き合う）">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M72 70C60 64 46 72 48 90C50 106 58 108 60 128C61 142 66 152 74 152C84 152 82 128 100 128C118 128 116 152 126 152C134 152 139 142 140 128C142 108 150 106 152 90C154 72 140 64 128 70C116 76 112 74 100 74C88 74 84 76 72 70Z" fill="#fffffe"></path>
+        <path d="M80 96Q100 112 120 96" fill="none" stroke="#e8665a"></path>
+        <path d="M130 30H170Q180 30 180 40V58Q180 68 170 68H160L150 80V68H130Q120 68 120 58V40Q120 30 130 30Z" fill="#f4d36b"></path>
+      </g>
+    </svg>
+          <div style="flex: 1 1 280px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 17px; color: #1c1c3a;">人と向き合う</h3>
+            <p style="margin: 0; font-size: 15px;">歯科衛生士として、話を聞き、相手に合わせて伝える。</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 24px 24px; padding: 24px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px; align-items: center;">
+          <svg style="flex: 0 0 auto;" width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="オフィスビルと人物のイラスト（現場に入る）">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="36" y="50" width="70" height="104" rx="4" fill="#fffffe"></rect>
+        <rect x="48" y="64" width="12" height="12" fill="#9ac5e5"></rect>
+        <rect x="68" y="64" width="12" height="12" fill="#9ac5e5"></rect>
+        <rect x="88" y="64" width="12" height="12" fill="#9ac5e5"></rect>
+        <rect x="48" y="88" width="12" height="12" fill="#9ac5e5"></rect>
+        <rect x="68" y="88" width="12" height="12" fill="#f4d36b"></rect>
+        <rect x="88" y="88" width="12" height="12" fill="#9ac5e5"></rect>
+        <rect x="62" y="124" width="22" height="30" fill="#4fb19d"></rect>
+        <circle cx="140" cy="104" r="14" fill="#fbd9c4"></circle>
+        <path d="M114 154C114 126 166 126 166 154Z" fill="#1c1c3a"></path>
+        <path d="M30 154H176" fill="none"></path>
+      </g>
+    </svg>
+          <div style="flex: 1 1 280px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 17px; color: #1c1c3a;">現場に入る</h3>
+            <p style="margin: 0; font-size: 15px;">IT サポートや客先常駐で、業務の実際を知り、改善を提案する。</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 24px 24px; padding: 24px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 12px; align-items: center;">
+          <svg style="flex: 0 0 auto;" width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="3層に重なったレイヤーのイラスト（作り、整える）">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M100 112L156 140L100 168L44 140Z" fill="#f4d36b"></path>
+        <path d="M100 86L156 114L100 142L44 114Z" fill="#e8665a"></path>
+        <path d="M100 60L156 88L100 116L44 88Z" fill="#4fb19d"></path>
+        <path d="M100 30V44M124 38L118 50M76 38L82 50" fill="none"></path>
+      </g>
+    </svg>
+          <div style="flex: 1 1 280px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 17px; color: #1c1c3a;">作り、整える</h3>
+            <p style="margin: 0; font-size: 15px;">システムや自動化ツールを作り、運用や基盤、監査対応まで支える。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Strengths & Skills -->
+  <section id="strength" style="border-top: 1px solid #e3e3ee; padding: 24px 48px; background: #f4f4fb;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px 12px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px;"><div style="flex: 1 1 360px; min-width: 0;"><div style="display: flex; flex-direction: column; gap: 2px;">
+        <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">STRENGTHS</p>
+        <h2 style="margin: 0; font-weight: 700; font-size: 28px; line-height: 1.4; color: #1c1c3a;">強み・得意分野</h2>
+        <p style="margin: 0; max-width: 760px; font-size: 15px;">作ること以上に、作る前の「何を、どこまで、どの順で作るか」を決める上流の部分が得意です。ここが定まると、作る段階で迷いが減り、手戻りも少なくなります。</p>
+      </div></div><div style="flex: 0 0 auto;"><svg width="130" height="130" viewBox="0 0 200 200" role="img" aria-label="デフォルメしたプロフィール（ひらめき）">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 96C40 44 70 22 100 22C130 22 160 44 156 96C156 118 160 130 154 142C146 146 138 138 136 128L64 128C62 138 54 146 46 142C40 130 44 118 44 96Z" fill="#7b5e4b"></path>
+        <path d="M92 126H108V140H92Z" fill="#fbd9c4"></path>
+        <path d="M66 142C66 135 82 132 100 132C118 132 134 135 134 142L140 190H60Z" fill="#1c1c3a"></path>
+        <path d="M88 133L100 152L112 133Z" fill="#fffffe" stroke-width="2.5"></path>
+        <path d="M70 148L62 172M130 148L152 128" fill="none" stroke-width="14"></path>
+        <circle cx="62" cy="174" r="9" fill="#fbd9c4"></circle>
+        <path d="M154 120V100" fill="none" stroke-width="11"></path>
+        <path d="M154 120V100" fill="none" stroke="#fbd9c4" stroke-width="5"></path>
+        <circle cx="154" cy="124" r="10" fill="#fbd9c4"></circle>
+        <ellipse cx="100" cy="92" rx="46" ry="44" fill="#fbd9c4"></ellipse>
+        <path d="M54 88C54 54 76 38 100 38C126 38 148 54 146 88C130 80 112 68 100 56C90 72 70 84 54 88Z" fill="#7b5e4b"></path>
+        <circle cx="80" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <circle cx="120" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <path d="M93 97H107" fill="none"></path>
+        <circle cx="82" cy="97" r="3.2" fill="#1c1c3a" stroke="none"></circle>
+        <circle cx="122" cy="97" r="3.2" fill="#1c1c3a" stroke="none"></circle>
+        <path d="M92 114Q100 120 108 114" fill="none" stroke-width="3"></path>
+        <circle cx="168" cy="52" r="12" fill="#f4d36b"></circle>
+        <path d="M163 66H173" fill="none" stroke-width="3"></path>
+        <path d="M168 32V26M184 40L188 36M152 40L148 36M190 54H196" fill="none" stroke="#e8665a" stroke-width="3"></path>
+      </g>
+      <circle cx="66" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+      <circle cx="134" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+    </svg></div></div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 28px 18px;">
+
+        <div style="flex: 1 1 100%; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 30px; padding: 32px 36px; background: #1c1c3a; border-radius: 14px;">
+          <svg style="flex: 0 0 auto;" width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="形のないもやが、はっきりした形に変わるイラスト（強みの帯）">
+      <circle cx="100" cy="100" r="94" fill="#2e2e56"></circle>
+      <g stroke="#fffffe" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 112C16 112 14 94 28 90C26 76 44 70 54 80C60 68 80 70 82 84C94 84 98 102 88 110C84 114 78 112 74 112Z" fill="#46467a" stroke-dasharray="5 5"></path>
+        <path d="M88 96H108M101 88L109 96L101 104" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <rect x="118" y="62" width="62" height="76" rx="8" fill="#4fb19d"></rect>
+        <path d="M118 80H180" fill="none"></path>
+        <rect x="128" y="90" width="42" height="10" rx="3" fill="#fffffe" stroke="none"></rect>
+        <rect x="128" y="108" width="20" height="20" rx="3" fill="#f4d36b" stroke="none"></rect>
+        <rect x="152" y="108" width="18" height="20" rx="3" fill="#e8665a" stroke="none"></rect>
+        <path d="M40 150L42 156L48 158L42 160L40 166L38 160L32 158L38 156Z" fill="#f4d36b" stroke="none"></path>
+      </g>
+    </svg>
+          <div style="flex: 1 1 400px; min-width: 0;">
+            <h3 style="margin: 0; font-weight: 700; font-size: 21px; color: #fffffe;">抽象を、具体に落とし込む</h3>
+            <p style="margin: 0; font-size: 15px; color: #f4f4fb;">曖昧な話を、作業の流れと必要な機能に分けて、実際に動くものにします。以下は、そのための具体的な力です。</p>
+          </div>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="虫眼鏡のイラスト（課題の発見・言語化）">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M118 118L158 158" fill="none" stroke-width="10"></path>
+        <circle cx="90" cy="90" r="38" fill="#fffffe"></circle>
+        <circle cx="90" cy="90" r="8" fill="#e8665a"></circle>
+        <path d="M70 70Q78 62 90 62" fill="none" stroke="#9ac5e5"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">課題の発見・言語化</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">「なんとなく不便」の正体を、観察と聞き取りから探し、誰が何に困っているのかを言葉にします。頼まれた作業の手前にある「なぜ」まで掘り下げます。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="仕分けされた3本の帯のイラスト（業務の整理・構造化）">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="46" cy="64" r="6" fill="#4fb19d"></circle>
+        <rect x="64" y="56" width="96" height="16" rx="8" fill="#4fb19d"></rect>
+        <circle cx="46" cy="100" r="6" fill="#f4d36b"></circle>
+        <rect x="64" y="92" width="70" height="16" rx="8" fill="#f4d36b"></rect>
+        <circle cx="46" cy="136" r="6" fill="#e8665a"></circle>
+        <rect x="64" y="128" width="50" height="16" rx="8" fill="#e8665a"></rect>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M4 6h16M4 12h10M4 18h6"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">業務の整理・構造化</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">バラバラな作業を、手順・判断・例外に分けて整理します。自動化に向く部分と、人が続けたほうがよい部分を見分けます。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="やることにチェック、やらないことに×が付いた一覧（要件定義・作らない判断）">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="46" y="38" width="108" height="126" rx="8" fill="#fffffe"></rect>
+        <circle cx="68" cy="70" r="9" fill="#4fb19d"></circle>
+        <path d="M63 70L67 74L74 66" fill="none" stroke="#fffffe"></path>
+        <path d="M86 70H138" fill="none"></path>
+        <circle cx="68" cy="102" r="9" fill="#4fb19d"></circle>
+        <path d="M63 102L67 106L74 98" fill="none" stroke="#fffffe"></path>
+        <path d="M86 102H130" fill="none"></path>
+        <circle cx="68" cy="134" r="9" fill="#e8665a"></circle>
+        <path d="M64 130L72 138M72 130L64 138" fill="none" stroke="#fffffe"></path>
+        <path d="M86 134H138" fill="none" stroke-dasharray="3 6"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 13h6M9 17h6"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">要件定義・作らない判断</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">「欲しいもの」を「必要な機能」に置き換え、やること、やらないこと、あとで考えることを線引きします。作らずに解決できるなら、そう伝えます。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="階段の頂上に旗が立つイラスト（優先順位づけ・小さく試す）">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="38" y="122" width="38" height="40" rx="3" fill="#4fb19d"></rect>
+        <rect x="76" y="100" width="38" height="62" rx="3" fill="#f4d36b"></rect>
+        <rect x="114" y="78" width="38" height="84" rx="3" fill="#e8665a"></rect>
+        <path d="M133 78V44" fill="none"></path>
+        <path d="M133 44L158 52L133 62Z" fill="#fffffe"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">優先順位づけ・小さく試す</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">効果の大きいところから小さく始め、現場で試して、直しながら精度を上げます。途中で方向を変えられる進め方にします。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="スマホ画面の設計図のイラスト（設計・UIの方向づけ）">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="64" y="34" width="72" height="132" rx="12" fill="#fffffe"></rect>
+        <path d="M90 46H110" fill="none"></path>
+        <rect x="74" y="60" width="52" height="30" rx="4" fill="#9ac5e5"></rect>
+        <rect x="74" y="98" width="52" height="12" rx="4" fill="#fffffe"></rect>
+        <rect x="74" y="118" width="52" height="12" rx="4" fill="#fffffe"></rect>
+        <rect x="88" y="140" width="24" height="14" rx="7" fill="#e8665a"></rect>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M9 9v11"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">設計・UI の方向づけ</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">現場の人が迷わず使える画面と操作の流れを、作る前にモックアップで見える形にします。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="2人の間に橋がかかるイラスト（合意形成・橋渡し）">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 148H170" fill="none"></path>
+        <path d="M44 128Q100 60 156 128" fill="none"></path>
+        <path d="M70 100V128M100 82V128M130 100V128" fill="none"></path>
+        <path d="M30 128H170" fill="none" stroke-width="5"></path>
+        <circle cx="44" cy="100" r="9" fill="#fbd9c4"></circle>
+        <path d="M30 120C30 106 58 106 58 120Z" fill="#4fb19d"></path>
+        <circle cx="156" cy="100" r="9" fill="#fbd9c4"></circle>
+        <path d="M142 120C142 106 170 106 170 120Z" fill="#e8665a"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M4 5h16v11H9l-5 4z"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">合意形成・橋渡し</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">現場、管理側、作り手の言葉の違いをつなぎ、関係者が同じ絵を見て進められる状態をつくります。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="4つの工程が1本の矢印でつながるイラスト（ひとりで一気通貫）">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 100H176M164 90L176 100L164 110" fill="none"></path>
+        <circle cx="50" cy="100" r="14" fill="#9ac5e5"></circle>
+        <circle cx="86" cy="100" r="14" fill="#4fb19d"></circle>
+        <circle cx="122" cy="100" r="14" fill="#f4d36b"></circle>
+        <circle cx="158" cy="100" r="14" fill="#e8665a"></circle>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">ひとりで一気通貫</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">企画・設計・開発・運用まで、窓口一本でつなげて進められます。伝言による行き違いが起きません。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="ひらめきの電球のイラスト（調べて、試して、形にする）">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M100 42C76 42 62 60 62 80C62 96 72 104 78 114C80 120 80 124 80 128H120C120 124 120 120 122 114C128 104 138 96 138 80C138 60 124 42 100 42Z" fill="#f4d36b"></path>
+        <path d="M82 140H118M88 152H112" fill="none"></path>
+        <path d="M100 24V14M54 46L46 38M146 46L154 38M40 84H30M170 84H160" fill="none" stroke="#e8665a"></path>
+        <path d="M90 100L100 90L110 100" fill="none"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">調べて、試して、形にする</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">初めての分野でも、自分で調べ、手を動かしながら進められます。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 3px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="ハートの入った吹き出しのイラスト（気持ちから聞く）">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 50H156Q168 50 168 62V122Q168 134 156 134H96L68 160V134H56Q44 134 44 122V62Q44 50 56 50Z" fill="#fffffe"></path>
+        <path d="M106 112C80 96 74 80 86 72C94 68 102 72 106 80C110 72 118 68 126 72C138 80 132 96 106 112Z" fill="#e8665a"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M12 21s-7-4.4-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.6-9 9-9 9z"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">気持ちから聞く</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">うまく言葉にできない困りごとも、急かさずに聞いて、一緒に整理します。</p>
+        </div>
+
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 3px; padding: 30px 30px; background: #fffffe; border: 1px solid #e3e3ee; border-radius: 14px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="リボンの付いた箱のイラスト（まるごとお任せ）">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="52" y="88" width="96" height="66" rx="5" fill="#f4d36b"></rect>
+        <rect x="44" y="68" width="112" height="22" rx="5" fill="#e8665a"></rect>
+        <rect x="90" y="68" width="20" height="86" fill="#4fb19d"></rect>
+        <path d="M100 68C88 48 70 54 80 66M100 68C112 48 130 54 120 66" fill="none"></path>
+      </g>
+    </svg></div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M5 12l4 4 10-10"></path></svg>
+            <h3 style="margin: 0; font-weight: 700; font-size: 17px; line-height: 1.4; color: #1c1c3a;">まるごとお任せいただける</h3>
+          </div>
+          <p style="margin: 0; font-size: 14px;">整理から設計、開発、手順書まで、ひとつの窓口でまとめて進められます。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Results + Works -->
+  <section id="works" style="border-top: 1px solid #e3e3ee; padding: 24px 48px; background: #fffffe;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px 18px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px;"><div style="flex: 1 1 360px; min-width: 0;"><div style="display: flex; flex-direction: column; gap: 2px;">
+        <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">WORKS</p>
+        <h2 style="margin: 0; font-weight: 700; font-size: 28px; line-height: 1.4; color: #1c1c3a;">成果・作品一覧</h2>
+        <p style="margin: 0; max-width: 700px; font-size: 15px;">作ってきたものは、大きく 3 つのテーマに分けられます。具体的な作品は、その下にまとめています。</p>
+      </div></div><div style="flex: 0 0 auto;"><svg width="130" height="130" viewBox="0 0 200 200" role="img" aria-label="ノートPCで開発する、ボーダーTシャツのデフォルメプロフィール">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 96C40 44 70 22 100 22C130 22 160 44 156 96C156 118 160 130 154 142C146 146 138 138 136 128L64 128C62 138 54 146 46 142C40 130 44 118 44 96Z" fill="#7b5e4b"></path>
+        <path d="M92 126H108V140H92Z" fill="#fbd9c4"></path>
+        <path d="M66 142C66 135 82 132 100 132C118 132 134 135 134 142L140 190H60Z" fill="#fffffe"></path>
+        <path d="M66 152H134M65 163H135M63 174H137" fill="none" stroke="#9ac5e5" stroke-width="5"></path>
+        <path d="M66 142C66 135 82 132 100 132C118 132 134 135 134 142L140 190H60Z" fill="none"></path>
+        <ellipse cx="100" cy="92" rx="46" ry="44" fill="#fbd9c4"></ellipse>
+        <path d="M54 88C54 54 76 38 100 38C126 38 148 54 146 88C130 80 112 68 100 56C90 72 70 84 54 88Z" fill="#7b5e4b"></path>
+        <circle cx="80" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <circle cx="120" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <path d="M93 97H107" fill="none"></path>
+        <circle cx="80" cy="99" r="3.2" fill="#1c1c3a" stroke="none"></circle>
+        <circle cx="120" cy="99" r="3.2" fill="#1c1c3a" stroke="none"></circle>
+        <path d="M91 114Q100 122 109 114" fill="none" stroke-width="3"></path>
+        <path d="M50 192L60 156H140L150 192Z" fill="#e3e3ee"></path>
+        <circle cx="100" cy="174" r="5" fill="#e8665a" stroke="none"></circle>
+        <circle cx="62" cy="170" r="9" fill="#fbd9c4"></circle>
+        <circle cx="138" cy="170" r="9" fill="#fbd9c4"></circle>
+        <path d="M152 44H176V62Q176 70 168 70H160Q152 70 152 62Z" fill="#fffffe" transform="translate(0 -8)"></path>
+        <path d="M176 48Q186 50 184 58Q182 64 176 62" fill="none" transform="translate(0 -8)"></path>
+        <path d="M160 34Q156 28 160 22M168 34Q164 28 168 22" fill="none" stroke="#e8665a" stroke-width="2.6"></path>
+      </g>
+      <circle cx="66" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+      <circle cx="134" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+    </svg></div></div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 28px 18px;">
+        <div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="画像が書類のPDFに変わるイラスト（紙・画像まわり）">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="22" y="64" width="64" height="72" rx="5" fill="#fffffe"></rect>
+        <circle cx="42" cy="86" r="6" fill="#f4d36b"></circle>
+        <path d="M26 128L48 104L62 118L72 108L82 120V132H26Z" fill="#4fb19d"></path>
+        <path d="M92 100H108M102 92L110 100L102 108" fill="none" stroke="#e8665a"></path>
+        <path d="M122 58H150L170 78V146H122Z" fill="#fffffe"></path>
+        <path d="M150 58V78H170" fill="none"></path>
+        <rect x="130" y="108" width="32" height="16" rx="3" fill="#e8665a" stroke="none"></rect>
+      </g>
+    </svg></div>
+          <h3 style="margin: 0; font-weight: 700; font-size: 17px; color: #1c1c3a;">紙・画像まわりの作業を減らす</h3>
+          <p style="margin: 0; font-size: 14px;">書類の判別、命名、PDF や TIF への変換と結合を自動で行う。</p>
+        </div>
+        <div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="自動で埋まる表のイラスト（集計と入力）">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="34" y="52" width="132" height="96" rx="6" fill="#fffffe"></rect>
+        <path d="M34 72H166V52H34Z" fill="#4fb19d"></path>
+        <path d="M34 92H166M34 112H166M34 132H166M78 72V148M122 72V148" fill="none"></path>
+        <rect x="82" y="96" width="36" height="12" fill="#f4d36b" stroke="none"></rect>
+        <path d="M156 130L140 160H152L146 182L170 148H156L162 130Z" fill="#e8665a"></path>
+      </g>
+    </svg></div>
+          <h3 style="margin: 0; font-weight: 700; font-size: 17px; color: #1c1c3a;">集計と入力を自動にする</h3>
+          <p style="margin: 0; font-size: 14px;">ファイル情報を Excel の台帳へ入力し、集計表まで出力する。</p>
+        </div>
+        <div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 12px;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="ベルと吹き出しのイラスト（問い合わせ・通知）">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M100 48C80 48 72 66 72 86V108L60 124H140L128 108V86C128 66 120 48 100 48Z" fill="#f4d36b"></path>
+        <path d="M90 134Q100 148 110 134" fill="#fffffe"></path>
+        <circle cx="132" cy="54" r="12" fill="#e8665a"></circle>
+        <path d="M36 138H88Q96 138 96 146V164Q96 172 88 172H62L48 184V172H44Q36 172 36 164V146Q36 138 44 138Z" fill="#fffffe" transform="translate(70 -10)"></path>
+        <path d="M120 142H146M120 154H138" fill="none"></path>
+      </g>
+    </svg></div>
+          <h3 style="margin: 0; font-weight: 700; font-size: 17px; color: #1c1c3a;">問い合わせ・通知を仕組みにする</h3>
+          <p style="margin: 0; font-size: 14px;">繰り返しの問い合わせや通知を、AI や自動化で整理する。</p>
+        </div>
+      </div>
+
+      <p style="margin: 0; font-size: 13px; color: #5b5b73; border-left: 3px solid #e3e3ee; padding-left: 12px;">状態は「運用中」「完成」「開発中」「検証中」「構想」のいずれかで示しています。</p>
+
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <h3 style="margin: 0; font-size: 16px; font-weight: 700; color: #1c1c3a;">代表的な作品</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px 21px;">
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-top: 4px solid #4fb19d; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="書類にタグが付き、表にまとまるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 40H88L106 58V112H44Z" fill="#fffffe"></path>
+        <path d="M88 40V58H106" fill="none"></path>
+        <path d="M54 76H96M54 90H96" fill="none"></path>
+        <path d="M42 54H66L76 64L66 74H42Z" fill="#e8665a" transform="translate(-6 -2)"></path>
+        <rect x="76" y="106" width="88" height="62" rx="5" fill="#fffffe"></rect>
+        <path d="M76 122H164V106H76Z" fill="#4fb19d"></path>
+        <path d="M76 138H164M76 154H164M105 122V168M135 122V168" fill="none"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">書類の判定・命名・集計ツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #FBEBD3; color: #8A4B00; font-size: 12px; font-weight: 700;">開発中（初版完成）</span>
+            </div>
+            <p style="margin: 0; font-size: 15px;">大量の書類を種類ごとに判別し、名付けと集計表を自動で作る。業務ごとの違いはプリセットで切り替え。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>判別・名付け・集計表の作成を手作業で行っていた。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">解決</span><span>キー操作で判定し、命名と集計表を自動出力。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Python、SQLite、Excel 出力</span></div>
+          </article>
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-top: 4px solid #4fb19d; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="問い合わせの吹き出しがAIで整理され、グラフになるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 44H88Q96 44 96 52V80Q96 88 88 88H60L46 100V88H38Q30 88 30 80V52Q30 44 38 44Z" fill="#fffffe"></path>
+        <path d="M42 60H84M42 72H70" fill="none"></path>
+        <path d="M100 66H116M110 58L118 66L110 74" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <rect x="124" y="42" width="50" height="50" rx="10" fill="#4fb19d"></rect>
+        <path d="M149 52L152 62L162 65L152 68L149 78L146 68L136 65L146 62Z" fill="#fffffe" stroke-width="2"></path>
+        <path d="M44 168V146M64 168V132M84 168V140M104 168V120M124 168V130" fill="none" stroke="#f4d36b" stroke-width="10"></path>
+        <path d="M32 170H140" fill="none"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">社内問い合わせ分析 AI エージェント</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #FBEBD3; color: #8A4B00; font-size: 12px; font-weight: 700;">検証中</span>
+            </div>
+            <p style="margin: 0; font-size: 15px;">問い合わせ内容を分類・要約し、傾向を把握しやすくする。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>問い合わせ内容の整理に時間がかかっていた。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Notion（カスタム AI エージェント）</span></div>
+          </article>
+        </div>
+      </div>
+
+      <details style="border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 6px 18px; min-height: 44px; padding: 0 16px; cursor: pointer; font-weight: 700; color: #1c1c3a; list-style: none;">
+          <span>その他の作品を見る（11点）</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+        </summary>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 4px 16px 16px;">
+
+      <!-- Group A -->
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="margin: 0; padding-bottom: 6px; border-bottom: 2px solid #1c1c3a; font-size: 18px; font-weight: 700; color: #1c1c3a;">A. 書類・データの整理</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px 21px;">
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="書類が揃っているかを確認し、足りないものを見つけるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="32" y="52" width="36" height="48" rx="4" fill="#fffffe"></rect>
+        <rect x="82" y="52" width="36" height="48" rx="4" fill="#fffffe"></rect>
+        <rect x="132" y="52" width="36" height="48" rx="4" fill="none" stroke="#e8665a" stroke-dasharray="4 5"></rect>
+        <circle cx="50" cy="76" r="9" fill="#4fb19d"></circle>
+        <path d="M45 76L49 80L56 72" fill="none" stroke="#fffffe"></path>
+        <circle cx="100" cy="76" r="9" fill="#4fb19d"></circle>
+        <path d="M95 76L99 80L106 72" fill="none" stroke="#fffffe"></path>
+        <path d="M150 68V80M150 86V87" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <circle cx="90" cy="140" r="22" fill="#fffffe"></circle>
+        <path d="M106 156L130 176" fill="none" stroke-width="8"></path>
+        <path d="M80 140H100" fill="none"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">不足・不要チェックツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #FBEBD3; color: #8A4B00; font-size: 12px; font-weight: 700;">開発中</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">複数フォルダの必要書類が揃っているかを確認し、不要なものを隔離する。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>揃い具合を目視で確認していた。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">解決</span><span>不足の確認、種類ごとの枚数集計、不要ファイルの隔離を自動化。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Python</span></div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="ファイルの情報が台帳に自動で入るイラスト">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M26 40H62L76 54V96H26Z" fill="#fffffe"></path>
+        <path d="M62 40V54H76" fill="none"></path>
+        <path d="M36 70H66M36 82H66" fill="none"></path>
+        <path d="M82 70H100M93 62L101 70L93 78" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <rect x="104" y="46" width="72" height="64" rx="5" fill="#fffffe"></rect>
+        <path d="M104 62H176V46H104Z" fill="#4fb19d"></path>
+        <path d="M104 78H176M104 94H176M128 62V110M152 62V110" fill="none"></path>
+        <rect x="129" y="79" width="22" height="14" fill="#f4d36b" stroke="none"></rect>
+        <path d="M60 130L48 156H58L52 180L82 144H66L74 130Z" fill="#e8665a"></path>
+        <path d="M100 150H168M100 166H150" fill="none" stroke-dasharray="2 7"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">Excel 自動入力ツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #E4EDFA; color: #1F4F9A; font-size: 12px; font-weight: 700;">完成</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">ファイルの情報を読み取り、Excel の台帳へ自動で入力する。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>ファイル情報を台帳へ手入力していた。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">解決</span><span>読み取りと入力を自動化。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Excel VBA</span></div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="入れ子のフォルダが1枚の一覧表になるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M26 52H48L54 60H82V84H26Z" fill="#f4d36b"></path>
+        <path d="M40 84V112H56M40 98H56" fill="none"></path>
+        <path d="M56 104H70L74 110H92V124H56Z" fill="#f4d36b"></path>
+        <path d="M56 130H70L74 136H92V150H56Z" fill="#f4d36b" transform="translate(0 -4)"></path>
+        <path d="M92 98H108M101 90L109 98L101 106" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <rect x="114" y="52" width="62" height="100" rx="5" fill="#fffffe"></rect>
+        <path d="M124 72H166M124 88H166M124 104H166M124 120H150M124 136H158" fill="none"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">ファイル一覧出力ツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #ECEFF2; color: #4B5563; font-size: 12px; font-weight: 700;">構想（要件確認中）</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">複数フォルダのファイル名を再帰的に読み、1 シートに一覧化する。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>ファイル名の確認と共有に手間がかかっていた。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Python、Excel 出力</span></div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Group B -->
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="margin: 0; padding-bottom: 6px; border-bottom: 2px solid #1c1c3a; font-size: 18px; font-weight: 700; color: #1c1c3a;">B. 画像・PDF の加工</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px 21px;">
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="画像が命名されたPDFになるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="24" y="58" width="56" height="64" rx="5" fill="#fffffe"></rect>
+        <circle cx="42" cy="78" r="6" fill="#f4d36b"></circle>
+        <path d="M28 114L46 94L58 106L66 98L76 108V118H28Z" fill="#4fb19d"></path>
+        <rect x="34" y="68" width="56" height="64" rx="5" fill="#fffffe" transform="translate(-4 -4)" opacity="0"></rect>
+        <path d="M86 90H102M95 82L103 90L95 98" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <path d="M112 44H146L166 64V150H112Z" fill="#fffffe"></path>
+        <path d="M146 44V64H166" fill="none"></path>
+        <rect x="120" y="96" width="38" height="18" rx="4" fill="#e8665a"></rect>
+        <path d="M120 128H158M120 138H146" fill="none"></path>
+        <path d="M30 140H90" fill="none" stroke-dasharray="2 7"></path>
+        <path d="M30 156H74" fill="none" stroke-dasharray="2 7"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">PDF 作成ツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #E3F3E8; color: #1B6B3A; font-size: 12px; font-weight: 700;">運用中（改修を継続）</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">混在する画像を読み込み、ルールに沿って命名・PDF 化する。重複は枝番で管理。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>まとめ方を変えて PDF 化する作業が煩雑だった。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Python（移行中）、Excel VBA（旧版）</span></div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="たくさんの冊子ページが1つのPDFにまとまるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="24" y="60" width="42" height="54" rx="4" fill="#fffffe" transform="rotate(-10 45 87)"></rect>
+        <rect x="34" y="62" width="42" height="54" rx="4" fill="#fffffe" transform="rotate(-2 55 89)"></rect>
+        <rect x="44" y="64" width="42" height="54" rx="4" fill="#fffffe" transform="rotate(6 65 91)"></rect>
+        <path d="M54 82H78M54 94H78" fill="none" transform="rotate(6 65 91)"></path>
+        <path d="M92 92H108M101 84L109 92L101 100" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <path d="M118 48H150L168 66V146H118Z" fill="#fffffe"></path>
+        <path d="M150 48V66H168" fill="none"></path>
+        <rect x="126" y="92" width="34" height="16" rx="4" fill="#e8665a"></rect>
+        <path d="M126 122H160" fill="none"></path>
+        <path d="M92 150L84 168H92L88 184L108 162H98L104 150Z" fill="#f4d36b" transform="translate(-34 -10)"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">一括 PDF 化ツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #E3F3E8; color: #1B6B3A; font-size: 12px; font-weight: 700;">運用中（手順書あり）</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">スキャンした冊子の画像を、まとめ方を指定して一括で PDF 化する。品質とサイズも確認できる。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Excel VBA、PDF 編集ソフト</span></div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="文字認識で番号を読み取り、複数ページにまとめるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="28" y="50" width="46" height="60" rx="4" fill="#fffffe"></rect>
+        <rect x="44" y="60" width="46" height="60" rx="4" fill="#fffffe"></rect>
+        <rect x="60" y="70" width="46" height="60" rx="4" fill="#fffffe"></rect>
+        <path d="M76 86H92M76 98H98M76 110H92" fill="none"></path>
+        <circle cx="146" cy="76" r="26" fill="#fffffe"></circle>
+        <path d="M138 82L146 68V88" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <path d="M164 94L184 114" fill="none" stroke-width="8"></path>
+        <path d="M32 154H110" fill="none" stroke="#4fb19d" stroke-width="4"></path>
+        <path d="M124 150L136 160L150 142" fill="none" stroke="#4fb19d" stroke-width="5"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">複数ページ画像の結合ツール（OCR 連携）</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #E3F3E8; color: #1B6B3A; font-size: 12px; font-weight: 700;">運用中（手順書あり）</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">文字認識で番号を読み取り、1 枚ずつの画像を番号ごとの複数ページファイルにまとめる。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Excel VBA、OCR</span></div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="画像のサイズや色数を分類して集計するイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="28" y="42" width="40" height="32" rx="4" fill="#9ac5e5"></rect>
+        <rect x="80" y="42" width="40" height="32" rx="4" fill="#f4d36b"></rect>
+        <rect x="132" y="42" width="40" height="32" rx="4" fill="#e8665a"></rect>
+        <path d="M36 66L46 54L54 62L60 56L64 66Z" fill="#fffffe" stroke-width="2"></path>
+        <path d="M100 82V96M92 90L100 98L108 90M48 82V96M40 90L48 98L56 90M152 82V96M144 90L152 98L160 90" fill="none"></path>
+        <path d="M44 162V126M72 162V138M100 162V114M128 162V132M156 162V120" fill="none" stroke="#4fb19d" stroke-width="12"></path>
+        <path d="M28 166H172" fill="none"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">画像の一括分類・集計ツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #E4EDFA; color: #1F4F9A; font-size: 12px; font-weight: 700;">完成（マニュアル作成中）</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">大量の画像のサイズや色数を読み込み、規格判定・集計・変換を 1 つのアプリで行う。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>1 件ずつ手作業で調べていた。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Python（GUI）、Excel 出力</span></div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="大きな画像を回転するイラスト">
+      <circle cx="100" cy="100" r="94" fill="#e4edfa"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="66" y="74" width="68" height="52" rx="5" fill="#fffffe" transform="rotate(-14 100 100)"></rect>
+        <path d="M74 118L92 98L104 110L112 102L124 116V120H74Z" fill="#4fb19d" transform="rotate(-14 100 100)"></path>
+        <circle cx="116" cy="88" r="6" fill="#f4d36b" transform="rotate(-14 100 100)"></circle>
+        <path d="M89.9 42.9A58 58 0 0 1 154.5 119.8" fill="none" stroke="#e8665a" stroke-width="5"></path>
+        <path d="M150.4 131.1L162 122.5L147 117.1Z" fill="#e8665a" stroke="#e8665a" stroke-width="2"></path>
+        <path d="M110.1 157.1A58 58 0 0 1 45.5 80.2" fill="none" stroke="#e8665a" stroke-width="5"></path>
+        <path d="M49.6 68.9L38 77.5L53 82.9Z" fill="#e8665a" stroke="#e8665a" stroke-width="2"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">大判画像の回転ツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #FBEBD3; color: #8A4B00; font-size: 12px; font-weight: 700;">開発中</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">大きな画像を、圧縮し直さずに回転する。プレビューは縮小して軽く表示。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>メモリ不足で回転・保存できなかった。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Python、画像処理ライブラリ</span></div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="PDFがまとめて別の形式の文書に変わるイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 50H52L66 64V120H24Z" fill="#fffffe"></path>
+        <path d="M52 50V64H66" fill="none"></path>
+        <rect x="31" y="88" width="28" height="12" rx="3" fill="#e8665a"></rect>
+        <path d="M30 40H56L70 54" fill="none" opacity="0"></path>
+        <path d="M76 86H108M97 76L109 86L97 96" fill="none" stroke="#e8665a" stroke-width="4"></path>
+        <path d="M116 50H144L158 64V120H116Z" fill="#fffffe"></path>
+        <path d="M144 50V64H158" fill="none"></path>
+        <rect x="123" y="82" width="28" height="30" rx="3" fill="#4fb19d"></rect>
+        <path d="M123 92H151M123 102H151M137 82V112" fill="none" stroke="#fffffe" stroke-width="2.4"></path>
+        <path d="M34 150H166M34 166H130" fill="none" stroke-dasharray="2 7"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">文書形式の一括変換ツール</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #FBEBD3; color: #8A4B00; font-size: 12px; font-weight: 700;">検証中</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">既存アプリの機能を活かし、大量の PDF を業務で使う形式へ一括変換する方式を検証。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Python、外部アプリ連携</span></div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Group D -->
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="margin: 0; padding-bottom: 6px; border-bottom: 2px solid #1c1c3a; font-size: 18px; font-weight: 700; color: #1c1c3a;">C. 問い合わせ・業務フローの自動化</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px 21px;">
+
+          <article style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="予定表の変更がベルで関係者に届くイラスト">
+      <circle cx="100" cy="100" r="94" fill="#dff0ec"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="28" y="52" width="76" height="76" rx="8" fill="#fffffe"></rect>
+        <path d="M28 74H104V60Q104 52 96 52H36Q28 52 28 60Z" fill="#4fb19d"></path>
+        <path d="M46 44V58M86 44V58" fill="none"></path>
+        <path d="M28 92H104M28 110H104M54 74V128M80 74V128" fill="none"></path>
+        <rect x="55" y="93" width="24" height="16" fill="#f4d36b" stroke="none"></rect>
+        <path d="M144 94C130 94 126 106 126 118V132L118 142H170L162 132V118C162 106 158 94 144 94Z" fill="#f4d36b"></path>
+        <path d="M136 148Q144 158 152 148" fill="#fffffe"></path>
+        <circle cx="166" cy="98" r="10" fill="#e8665a"></circle>
+        <path d="M110 110H120" fill="none" stroke="#e8665a" stroke-width="4" stroke-dasharray="2 5"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">チーム通知の自動化</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #E4EDFA; color: #1F4F9A; font-size: 12px; font-weight: 700;">完成</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">予定表の情報をもとに、関係者への通知を自動で配信する。</p>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">課題</span><span>予定の変更を手動で伝えていた。</span></div>
+            <div style="display: flex; gap: 15px; font-size: 14px;"><span style="flex: 0 0 2.5em; font-weight: 700; color: #1c1c3a;">技術</span><span>Slack（リスト機能）、自動化の仕組み</span></div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Concept -->
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="margin: 0; padding-bottom: 6px; border-bottom: 2px solid #1c1c3a; font-size: 18px; font-weight: 700; color: #1c1c3a;">構想</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px 21px;">
+          <article style="flex: 1 1 320px; max-width: 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 30px; border: 1px solid #e3e3ee; border-radius: 10px; background: #fffffe;"><div style="align-self: center; display: flex; justify-content: center;"><svg width="110" height="110" viewBox="0 0 200 200" role="img" aria-label="図面を大判プリンターへ送るイラスト">
+      <circle cx="100" cy="100" r="94" fill="#fdf1c4"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="46" y="30" width="108" height="72" rx="4" fill="#9ac5e5"></rect>
+        <path d="M58 46H100M58 58H88" fill="none" stroke="#fffffe" stroke-width="2.4"></path>
+        <circle cx="124" cy="68" r="14" fill="none" stroke="#fffffe" stroke-width="2.4"></circle>
+        <path d="M110 86L140 56M62 90H104" fill="none" stroke="#fffffe" stroke-width="2.4"></path>
+        <rect x="30" y="116" width="140" height="40" rx="8" fill="#fffffe"></rect>
+        <rect x="42" y="126" width="52" height="8" rx="3" fill="#e4edfa"></rect>
+        <circle cx="150" cy="136" r="5" fill="#4fb19d"></circle>
+        <path d="M54 156H146V178H54Z" fill="#fffffe"></path>
+        <path d="M66 166H134" fill="none"></path>
+      </g>
+    </svg></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px;">
+              <h4 style="margin: 0; flex: 1 1 160px; font-size: 16px; line-height: 1.5; color: #1c1c3a;">図面の出力ツール（DWG 印刷）</h4>
+              <span style="padding: 1px 10px; border-radius: 999px; background: #ECEFF2; color: #4B5563; font-size: 12px; font-weight: 700;">構想</span>
+            </div>
+            <p style="margin: 0; font-size: 14px;">図面をベクターのまま出力し、大判印刷機へ直接指示を送る構想。</p>
+          </article>
+        </div>
+      </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section id="history" style="border-top: 1px solid #e3e3ee; padding: 24px 48px; background: #f4f4fb;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px 15px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px;"><div style="flex: 1 1 360px; min-width: 0;"><div style="display: flex; flex-direction: column; gap: 2px;">
+        <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">HISTORY</p>
+        <h2 style="margin: 0; font-weight: 700; font-size: 28px; line-height: 1.4; color: #1c1c3a;">経歴</h2>
+      </div></div><div style="flex: 0 0 auto;"><svg width="120" height="120" viewBox="0 0 200 200" role="img" aria-label="デフォルメしたプロフィール（ピースサイン）">
+      <circle cx="100" cy="100" r="94" fill="#fde1dd"></circle>
+      <g stroke="#1c1c3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 96C40 44 70 22 100 22C130 22 160 44 156 96C156 118 160 130 154 142C146 146 138 138 136 128L64 128C62 138 54 146 46 142C40 130 44 118 44 96Z" fill="#7b5e4b"></path>
+        <path d="M92 126H108V140H92Z" fill="#fbd9c4"></path>
+        <path d="M66 142C66 135 82 132 100 132C118 132 134 135 134 142L140 190H60Z" fill="#1c1c3a"></path>
+        <path d="M88 133L100 152L112 133Z" fill="#fffffe" stroke-width="2.5"></path>
+        <path d="M70 148L62 172M130 148L150 124" fill="none" stroke-width="14"></path>
+        <circle cx="62" cy="174" r="9" fill="#fbd9c4"></circle>
+        <path d="M148 112L142 92M158 110L164 92" fill="none" stroke-width="11"></path>
+        <path d="M148 112L142 92M158 110L164 92" fill="none" stroke="#fbd9c4" stroke-width="5"></path>
+        <circle cx="153" cy="118" r="10" fill="#fbd9c4"></circle>
+        <ellipse cx="100" cy="92" rx="46" ry="44" fill="#fbd9c4"></ellipse>
+        <path d="M54 88C54 54 76 38 100 38C126 38 148 54 146 88C130 80 112 68 100 56C90 72 70 84 54 88Z" fill="#7b5e4b"></path>
+        <circle cx="80" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <circle cx="120" cy="98" r="13" fill="#fffffe" fill-opacity="0.45"></circle>
+        <path d="M93 97H107" fill="none"></path>
+        <path d="M74 99Q80 93 86 99M114 99Q120 93 126 99" fill="none" stroke-width="3"></path>
+        <path d="M89 114Q100 126 111 114Z" fill="#fffffe" stroke-width="2.8"></path>
+      </g>
+      <circle cx="66" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+      <circle cx="134" cy="112" r="6" fill="#e8665a" opacity="0.35"></circle>
+    </svg></div></div>
+      <div style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-wrap: wrap; gap: 2px 36px; padding: 10px 0; border-top: 1px solid #e3e3ee;">
+          <p style="margin: 0; flex: 0 0 160px; font-weight: 700; color: #1c1c3a;">2024.11 〜 2026.8</p>
+          <div style="flex: 1 1 320px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 16px; color: #1c1c3a;">情報システム支援・人材開発</h3>
+            <p style="margin: 0; font-size: 14px;">SASE の運用、ホームページの刷新、DNS・SSL 証明書の管理、J-SOX・ISMS の監査対応。あわせて、社内テストの設計・作成や、研修の企画・実施など人材開発も担当。</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2px 36px; padding: 10px 0; border-top: 1px solid #e3e3ee;">
+          <p style="margin: 0; flex: 0 0 160px; font-weight: 700; color: #1c1c3a;">2022.4 〜 2024.11</p>
+          <div style="flex: 1 1 320px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 16px; color: #1c1c3a;">システム関連業務</h3>
+            <p style="margin: 0; font-size: 14px;">基幹システムのリプレイス（要件定義・UI/UX 最適化）、LINE Bot の設計・開発、IVR 化、AWS SES の監視、GAS・VBA・SQL による自動化。</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2px 36px; padding: 10px 0; border-top: 1px solid #e3e3ee;">
+          <p style="margin: 0; flex: 0 0 160px; font-weight: 700; color: #1c1c3a;">2020.12 〜</p>
+          <div style="flex: 1 1 320px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 16px; color: #1c1c3a;">客先常駐・採用管理・広報</h3>
+            <p style="margin: 0; font-size: 14px;">現場での業務改善の提案と進捗管理。ATS（採用管理）の構築と、GAS による応募フローの自動化。</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2px 36px; padding: 10px 0; border-top: 1px solid #e3e3ee;">
+          <p style="margin: 0; flex: 0 0 160px; font-weight: 700; color: #1c1c3a;">2019.10 〜</p>
+          <div style="flex: 1 1 320px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 16px; color: #1c1c3a;">IT サポート</h3>
+            <p style="margin: 0; font-size: 14px;">Windows・macOS・モバイル端末のキッティング、MDM 管理、ユーザーサポート、アカウント管理。</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2px 36px; padding: 10px 0; border-top: 1px solid #e3e3ee;">
+          <p style="margin: 0; flex: 0 0 160px; font-weight: 700; color: #1c1c3a;">それ以前</p>
+          <div style="flex: 1 1 320px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 16px; color: #1c1c3a;">歯科衛生士</h3>
+            <p style="margin: 0; font-size: 14px;">正社員として 4 年、その後は週 1 勤務で 2 年。相手の話を聞き、状況に合わせて伝える仕事。</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2px 36px; padding: 10px 0; border-top: 1px solid #e3e3ee; border-bottom: 1px solid #e3e3ee;">
+          <p style="margin: 0; flex: 0 0 160px; font-weight: 700; color: #1c1c3a;">2025.8</p>
+          <div style="flex: 1 1 320px; min-width: 0;">
+            <h3 style="margin: 0; font-size: 16px; color: #1c1c3a;">資格</h3>
+            <p style="margin: 0; font-size: 14px;">Certified Cybersecurity Technician（EC-Council）を取得。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Closing -->
+  <section id="contact" style="border-top: 1px solid #e3e3ee; padding: 24px 48px; background: #e4edfa">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px 15px; align-items: flex-start;">
+      <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #1c1c3a; border-left: 4px solid {{accent}}; padding-left: 10px;">CONTACT</p>
+      <h2 style="margin: 0; font-weight: 700; font-size: 28px; line-height: 1.5; color: #1c1c3a;">まだ形になっていない話から、聞かせてください。</h2>
+      <p style="margin: 0; max-width: 600px; font-size: 15px;">「何から話せばいいかわからない」でも大丈夫です。まるごとお任せください。</p>
+      <p style="margin: 0; max-width: 700px; font-size: 15px; font-weight: 700; color: #1c1c3a;">料金は、時給制でも成果報酬でも対応できます。納期や稼働開始時期にあわせて、柔軟に進めます。</p><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px 30px; width: 100%;"><div style="align-self: flex-start;"><svg width="320" height="227" viewBox="0 0 480 340" role="img" aria-label="パソコンを持つ女性と、封筒・吹き出しで相談を受け付けるイラスト">
+      <rect width="480" height="340" rx="24" fill="#e4edfa"></rect>
+      <circle cx="54" cy="60" r="8" fill="#f9ebb8"></circle>
+      <circle cx="436" cy="290" r="12" fill="#f9ebb8"></circle>
+      <g stroke="#1c1c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="translate(30 120)">
+          <path d="M50 96C46 54 70 32 100 32C130 32 154 54 150 96L152 132C142 138 134 134 132 124L68 124C66 134 58 138 48 132Z" fill="#7b5e4b"></path>
+          <path d="M90 112H110V134H90Z" fill="#fbd9c4"></path>
+          <path d="M36 200C36 154 62 134 100 134C138 134 164 154 164 200Z" fill="#1c1c3a"></path>
+          <path d="M82 135L100 162L118 135Z" fill="#fffffe"></path>
+          <ellipse cx="100" cy="90" rx="35" ry="38" fill="#fbd9c4"></ellipse>
+          <path d="M65 84C64 56 82 46 100 46C118 46 136 56 135 84C122 76 108 66 98 58C90 70 78 80 65 84Z" fill="#7b5e4b"></path>
+          <circle cx="86" cy="94" r="11" fill="#fffffe" fill-opacity="0.5"></circle>
+          <circle cx="114" cy="94" r="11" fill="#fffffe" fill-opacity="0.5"></circle>
+          <path d="M97 93H103" fill="none"></path>
+          <circle cx="86" cy="94" r="2.2" fill="#1c1c3a" stroke="none"></circle>
+          <circle cx="114" cy="94" r="2.2" fill="#1c1c3a" stroke="none"></circle>
+          <path d="M91 109Q100 118 109 109" fill="none"></path>
+        </g>
+        <!-- bubble -->
+        <path d="M240 46H400Q414 46 414 60V108Q414 122 400 122H300L274 146V122H254Q240 122 240 108V60Q240 46 254 46Z" fill="#fffffe"></path>
+        <circle cx="288" cy="84" r="5" fill="#1c1c3a"></circle>
+        <circle cx="327" cy="84" r="5" fill="#1c1c3a"></circle>
+        <circle cx="366" cy="84" r="5" fill="#1c1c3a"></circle>
+        <!-- envelope -->
+        <rect x="250" y="190" width="170" height="108" rx="10" fill="#fffffe"></rect>
+        <path d="M252 196L335 254L418 196" fill="none"></path>
+        <circle cx="408" cy="190" r="14" fill="#e8665a"></circle>
+      </g>
+    </svg></div><div style="width: auto; max-width: 760px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 24px 30px; padding: 42px 33px; background: #fffffe; border: 1px solid #e3e3ee; border-top: 6px solid #e8665a; border-radius: 14px; flex: 1 1 360px; min-width: 0">
+        <div style="flex: 1 1 300px; min-width: 0;">
+          <h3 style="margin: 0 0 2px; font-size: 18px; color: #1c1c3a;">お問い合わせフォーム</h3>
+          <p style="margin: 0; font-size: 14px;">ご相談の種類、料金形態、納期または稼働開始時期、ご相談内容をご入力ください。うまく書けなくても、わかる範囲で大丈夫です。</p>
+        </div>
+        <a class="btn" href="contact.html" target="_blank" rel="noopener" style="flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 48px; padding: 0 28px; background: #1c1c3a; color: #fffffe; font-weight: 700; text-decoration: none; border-radius: 999px;">フォームで相談する →</a>
+      </div></div>
+      
+      
+      <div style="display: flex; align-items: center; gap: 15px; font-weight: 500; color: #1c1c3a; margin-top: 4px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1c3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+        <span>メール：[メールアドレス]</span>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: 4px 48px; border-top: 1px solid #e3e3ee; font-size: 13px; color: #5b5b73; text-align: center;">
+    © 2026 IWAZAKI
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#e8665a","options":["#e8665a","#9ac5e5","#1c1c3a"]},"$preview":{"width":1280,"height":3400}}'>
+class Component extends DCLogic {
+renderVals() {
+try{
+if(!window.__rvInit){window.__rvInit=1;
+const SEL='section:not(#top) > div > div:first-child, section:not(#top) [style*="border-radius"]:not([style*="50%"]):not([style*="999px"]), section:not(#top) article, section:not(#top) li, section:not(#top) details, #contact > div > *';
+const roots=()=>{const r=[document];document.querySelectorAll('*').forEach(e=>{if(e.shadowRoot)r.push(e.shadowRoot)});return r;};
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&(e.intersectionRatio>=0.3||e.intersectionRect.height>=260)){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:[0,0.15,0.3,0.5]});
+const scan=()=>{roots().forEach(r=>{r.querySelectorAll(SEL).forEach(el=>{if(el.dataset.rv||el.closest('#contact'))return;if(el.parentElement&&el.parentElement.closest('[data-rv]'))return;el.dataset.rv='1';el.classList.add('rv');if(el.matches('section > div > div:first-child, #contact > div > *'))el.classList.add('hd');else el.classList.add('v'+(()=>{const sc=el.closest('section');return sc?[...sc.parentElement.children].filter(x=>x.tagName==='SECTION').indexOf(sc)%8:0;})());const i=[...el.parentElement.children].indexOf(el);el.style.animationDelay=((i%2)*0.12)+'s';io.observe(el);});});};
+scan();setInterval(scan,600);}
+}catch(e){}
+
+return { accent: this.props.accent ?? '#e8665a' };
+}
+}
+</script>
+</body>
+</html>
